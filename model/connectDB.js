@@ -1,3 +1,4 @@
+const { messages } = require('babel-core');
 const mongoose=require('mongoose')
 const {Schema}=mongoose;
 
@@ -12,7 +13,10 @@ const StoreSchema=new Schema({
     },
     company:{
         type:String,
-        default:"XYZ company"
+        enum:{
+        values:['ikea','caressa','marcos','liddy'],
+        message:"Please enter a company name like ikea, caressa, marcosm liddy"
+        }
     },
     rating:{
         type:Number,
